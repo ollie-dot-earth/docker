@@ -1,0 +1,20 @@
+services:
+  eater:
+    build: ./eater
+    container_name: eater
+    restart: no
+    env_file: .env
+    ports: 
+      - "3000:3000"
+    environment: 
+      EATER_DEVELOPMENT: true
+      # optional values
+      # DATABASE_URL: <your-custom-database-url>    # defaults to 'sqlite:/data/database.sqlite3'
+      # SMTP_SENDER_EMAIL: <your-sender-email>      # defaults to SMTP_USERNAME if unset
+      # SMTP_SENDER_NAME: <your-sender-name>        # defaults to '3000' if unset
+      # ALLOW_SIGNUPS: true                         # whether to allow anyone to create an account, defaults to 'false'
+      # PORT: 3000                                  # web-ui port, defaults to 3000 if unset
+    volumes:
+      - ./data:/data
+      # or
+      # - my_volume:/data

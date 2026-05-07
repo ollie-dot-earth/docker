@@ -4,3 +4,6 @@
 [submodule "tangled/knot-docker"]
 	path = tangled/knot-docker
 	url = https://tangled.sh/@tangled.sh/knot-docker
+[submodule "eater/eater"]
+	path = eater/eater
+	url = https://tangled.org/ollie.earth/eater

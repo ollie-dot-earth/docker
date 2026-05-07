@@ -1,0 +1,8 @@
+default:
+  @just --list
+
+git-pull:
+  cd ./eater && git pull
+
+update: git-pull
+  docker compose up -d --build
