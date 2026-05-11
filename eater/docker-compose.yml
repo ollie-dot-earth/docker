@@ -1,3 +1,7 @@
+networks:
+  proxy:
+    external: true
+
 services:
   eater:
     build: ./eater
@@ -11,10 +15,15 @@ services:
       # optional values
       # DATABASE_URL: <your-custom-database-url>    # defaults to 'sqlite:/data/database.sqlite3'
       # SMTP_SENDER_EMAIL: <your-sender-email>      # defaults to SMTP_USERNAME if unset
-      # SMTP_SENDER_NAME: <your-sender-name>        # defaults to '3000' if unset
-      # ALLOW_SIGNUPS: true                         # whether to allow anyone to create an account, defaults to 'false'
+      SMTP_SENDER_NAME: "ollie's aggregator"
+      ALLOW_SIGNUPS: true                         # whether to allow anyone to create an account, defaults to 'false'
       # PORT: 3000                                  # web-ui port, defaults to 3000 if unset
     volumes:
       - ./data:/data
       # or
       # - my_volume:/data
+    networks:
+      - proxy
+    labels:
+      caddy_0: eater.ollie.earth
+      caddy_0.reverse_proxy: "{{upstreams 3000}}"
