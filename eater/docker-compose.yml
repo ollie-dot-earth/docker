@@ -8,8 +8,6 @@ services:
     container_name: eater
     restart: no
     env_file: .env
-    ports: 
-      - "3000:3000"
     environment: 
       EATER_DEVELOPMENT: true
       # optional values
