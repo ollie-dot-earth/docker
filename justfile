@@ -21,7 +21,7 @@ start-primary-services: start-essential
   cd eater && docker compose up -d
   cd watchtower && docker compose up -d
   cd woodpecker-ci && docker compose up -d
-  cd tangled && docker compose up -d
+  @just start-tangled
   cd navidrome && docker compose up -d
   cd git && docker compose up -d
   cd reactive-resume && docker compose up -d
@@ -36,4 +36,6 @@ start-other-services: start-essential
   cd grafana && docker compose up -d
   cd homarr-nora && docker compose up -d
   cd minecraft && docker compose up -d
-  cd stirling-pdf && docker compose up -d
+
+start-tangled:
+  cd tangled && docker compose up -d
