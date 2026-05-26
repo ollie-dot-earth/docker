@@ -1,6 +1,0 @@
-services:
-  git-mirror-user:
-    image: jaedle/mirror-to-gitea:latest
-    restart: unless-stopped
-    container_name: github-to-forgejo-mirror
-    env_file: ".env"
