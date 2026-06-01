@@ -45,6 +45,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
     depends_on: 
       - db
+    deploy:
+      resources:
+        limits:
+          memory: 2G
 
   anubis:
     image: ghcr.io/techarohq/anubis:latest
