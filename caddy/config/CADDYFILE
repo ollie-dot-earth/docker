@@ -5,7 +5,7 @@
   }
   log
   on_demand_tls {
-    ask http://frigometri.fritz.box:9999/ask
+    ask http://192.168.188.128:9999/ask
   }
 }
 
@@ -18,7 +18,7 @@
   tls {
     on_demand
   }
-  reverse_proxy http://frigometri.fritz.box
+  reverse_proxy http://192.168.188.128
 }
 
 www.ollie.earth {
