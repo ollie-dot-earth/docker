@@ -6,7 +6,7 @@ services:
   eater:
     build: ./eater
     container_name: eater
-    restart: no
+    restart: unless-stopped
     env_file: .env
     environment: 
       EATER_DEVELOPMENT: true
