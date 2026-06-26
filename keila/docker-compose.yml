@@ -1,0 +1,28 @@
+networks:
+  proxy:
+    external: true
+  keila:
+
+services:
+  keila:
+    image: pentacent/keila:latest
+    container_name: "keila"
+    ports:
+      - "4000:4000"
+    env_file: ".env"
+    environment:
+      URL_HOST: "keila.ollie.earth"
+    depends_on:
+      - postgres
+    networks:
+      - keila
+      - proxy
+    labels:
+      caddy_0: keila.ollie.earth
+      caddy_0.reverse_proxy: "{{upstreams 4000}}"
+
+  postgres:
+    image: postgres:alpine
+    env_file: ".env"
+    networks:
+      - keila
