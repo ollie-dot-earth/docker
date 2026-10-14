@@ -62,6 +62,12 @@ ollie.earth {
   # Link shortening
   redir /bsky https://bsky.app/profile/ollie.earth
 
+  redir /gh https://github.com/ollie-dot-earth
+  redir /github https://github.com/ollie-dot-earth
+
+  redir /tngl https://tangled.org/ollie.earth
+  redir /tangled https://tangled.org/ollie.earth
+
   redir /lebenslauf https://reactive-resume.ollie.earth/nuv/lebenslauf
   redir /cv https://reactive-resume.ollie.earth/nuv/cv
   
