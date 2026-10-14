@@ -9,6 +9,9 @@
   }
 }
 
+websocket-testing.ollie.earth {
+  reverse_proxy 192.168.188.42:1234
+}
 
 :9090 {
   metrics
@@ -26,6 +29,10 @@ www.ollie.earth {
 }
 
 ollie.earth {
+  handle_path /blog/never-gonna {
+    redir https://www.youtube.com/watch?v=dQw4w9WgXcQ html
+  }
+
   # ===================------ ATPROTO ------===================
   handle_path /.well-known/atproto-did {
     respond "did:plc:cezmtk5bb4zipkps3abnjjl6"
@@ -52,6 +59,13 @@ ollie.earth {
     reverse_proxy matrix:8008
   }
 
+  # Link shortening
+  redir /bsky https://bsky.app/profile/ollie.earth
+
+  redir /lebenslauf https://reactive-resume.ollie.earth/nuv/lebenslauf
+  redir /cv https://reactive-resume.ollie.earth/nuv/cv
+  
+
   # ===================------ My Site ------===================
   handle {
     root /srv/page
@@ -73,12 +87,16 @@ cv.nuv.sh {
   redir https://cv.ollie.earth{uri} permanent
 }
 
+reactive-resume.nuv.sh {
+  redir https://reactive-resume.ollie.earth{uri} permanent
+}
+
 cv.ollie.earth {
   handle /* {
-    redir https://reactive-resume.nuv.sh/nuv{path} permanent
+    redir https://reactive-resume.ollie.earth/nuv{path}
   }
 
-  redir https://reactive-resume.nuv.sh/nuv/cv permanent
+  redir https://reactive-resume.ollie.earth/nuv/cv
 }
 
 doodler.nuv.sh {
